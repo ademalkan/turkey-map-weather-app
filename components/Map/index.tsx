@@ -9,6 +9,8 @@ const Map = () => {
     router.push("?city=" + cityName);
   };
 
+
+
   return (
     <TurkeyMap
       onClick={({ name }) => redirectCity(name)}
