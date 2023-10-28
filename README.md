@@ -14,20 +14,14 @@ Secondly, set cmd route the turkey-map-weather-app folder:
 cd turkey-map-weather-app
 ```
 
-Thirdly, create the .env file:
-
-```bash
-mkdir .env
-```
-
-Fourthly, open the .env file and copy the under codes. After set the OPEN_WATHER_MAP_API_KEY:
+Thirdly, open the .env file and set the OPEN_WATHER_MAP_API_KEY:
 
 ```bash
 OPEN_WATHER_MAP_API_KEY=
 API_BASE_URL=https://api.openweathermap.org/data/2.5/weather
 ```
 
-Fifth, install the project dependencies:
+Fourthly, install the project dependencies:
 
 ```bash
 npm i
