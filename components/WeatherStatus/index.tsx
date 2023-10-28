@@ -10,7 +10,7 @@ const WeatherStatus = ({ city }: { city: CityFetch }) => {
   const iconClasses = helper.iconClasses;
 
   return (
-    <Listbox variant="flat" aria-label="Listbox menu with sections">
+    <Listbox variant="flat" aria-label="Weather Status List">
       <ListboxSection showDivider>
         <ListboxItem
           key="thermomoter"

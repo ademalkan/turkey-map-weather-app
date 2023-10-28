@@ -1,5 +1,3 @@
-import { useRouter } from "next/router";
-
 export default class Helper {
   /* The line `public iconClasses = "text-4xl text-default-500 pointer-events-none flex-shrink-0";` is
   declaring a public property `iconClasses` in the `Helper` class. The property is assigned a string
@@ -70,6 +68,21 @@ wind speed in kilometers per hour. */
       hour: "2-digit",
       minute: "2-digit",
       timeZoneName: "shortGeneric",
+    };
+    const formattedTime = date.toLocaleString("tr-TR", options);
+    return formattedTime;
+  };
+
+  /* The `calculateTime` method is a function that takes a `timestamp` parameter, which represents a Unix
+timestamp (the number of milliseconds since January 1, 1970). */
+  calculateTime = (timestamp: number): string => {
+    const date = new Date(timestamp);
+    const options: Intl.DateTimeFormatOptions = {
+      year: "2-digit",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
     };
     const formattedTime = date.toLocaleString("tr-TR", options);
     return formattedTime;

@@ -1,10 +1,14 @@
+import { useCitiesStore } from "@/features";
 import { useRouter } from "next/navigation";
 import React from "react";
 import TurkeyMap from "turkey-map-react";
 
 const Map = () => {
   const router = useRouter();
+  const { add } = useCitiesStore();
   const redirectCity = (name: string) => {
+    const time = new Date().getTime();
+    add({ name, time });
     router.push("?city=" + name);
   };
 
