@@ -65,7 +65,7 @@ const CityModal = ({ city }: CityModal) => {
             <ModalBody>{modalBodyRender()}</ModalBody>
             <ModalFooter>
               <Button color="danger" variant="light" onPress={onClose}>
-                Close
+                Kapat
               </Button>
             </ModalFooter>
           </>
