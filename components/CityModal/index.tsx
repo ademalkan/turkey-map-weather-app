@@ -1,4 +1,4 @@
-import { CityFetch, Helper, WeatherService } from "@/lib";
+import { CityFetch, FetchError, Helper, WeatherService } from "@/lib";
 import {
   Modal,
   ModalContent,
@@ -9,7 +9,7 @@ import {
 } from "@nextui-org/react";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { WeatherStatus } from "..";
+import { NotFoundCity, WeatherStatus, WeatherStatusSkelaton } from "..";
 
 type CityModal = {
   city: string;
@@ -27,12 +27,27 @@ const CityModal = ({ city }: CityModal) => {
   const fetchCityData = async () => {
     const weatherService = new WeatherService();
     const cityWeather = await weatherService.fetch.city(city);
-    setCityData(cityWeather);
+    setCityData(cityWeather as CityFetch);
   };
 
   useEffect(() => {
     fetchCityData();
   }, []);
+
+  const modalHeaderRender = () => {
+    return `${helper.capitalizeFirstLetter(city)} Hava Durumu`;
+  };
+
+  const modalBodyRender = () => {
+    if (cityData?.cod?.toString() === "404")
+      return <NotFoundCity city={city} />;
+
+    return !cityData?.id ? (
+      <WeatherStatusSkelaton />
+    ) : (
+      <WeatherStatus city={cityData} />
+    );
+  };
 
   return (
     <Modal
@@ -45,15 +60,9 @@ const CityModal = ({ city }: CityModal) => {
         {(onClose) => (
           <>
             <ModalHeader className="flex flex-col gap-1">
-              {helper.capitalizeFirstLetter(city)} Hava Durumu
+              {modalHeaderRender()}
             </ModalHeader>
-            <ModalBody>
-              {!cityData ? (
-                <div>"Yükleniyor"</div>
-              ) : (
-                <WeatherStatus city={cityData} />
-              )}
-            </ModalBody>
+            <ModalBody>{modalBodyRender()}</ModalBody>
             <ModalFooter>
               <Button color="danger" variant="light" onPress={onClose}>
                 Close

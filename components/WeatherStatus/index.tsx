@@ -7,9 +7,8 @@ import { BsFillSunriseFill } from "react-icons/bs";
 
 const WeatherStatus = ({ city }: { city: CityFetch }) => {
   const helper = new Helper();
+  const iconClasses = helper.iconClasses;
 
-  const iconClasses =
-    "text-4xl text-default-500 pointer-events-none flex-shrink-0";
   return (
     <Listbox variant="flat" aria-label="Listbox menu with sections">
       <ListboxSection showDivider>

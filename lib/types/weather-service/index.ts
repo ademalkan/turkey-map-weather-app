@@ -1,8 +1,15 @@
 // fetch method types
 
 export type WeatherServiceFetch = {
-  cityOpenWeather: (city: string) => Promise<CityFetch>;
-  city: (city: string) => Promise<CityFetch>;
+  cityOpenWeather: (city: string) => Promise<CityFetch | FetchError>;
+  city: (city: string) => Promise<CityFetch | FetchError>;
+};
+
+// fetch error
+
+export type FetchError = {
+  cod: string;
+  message: string;
 };
 
 // Endpoint Response

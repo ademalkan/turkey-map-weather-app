@@ -1,4 +1,11 @@
 export default class Helper {
+  /* The line `public iconClasses = "text-4xl text-default-500 pointer-events-none flex-shrink-0";` is
+  declaring a public property `iconClasses` in the `Helper` class. The property is assigned a string
+  value `"text-4xl text-default-500 pointer-events-none flex-shrink-0"`. This property can be
+  accessed and used by other parts of the code that have an instance of the `Helper` class. */
+  public iconClasses =
+    "text-4xl text-default-500 pointer-events-none flex-shrink-0";
+
   /* The `capitalizeFirstLetter` method is a function that takes a string as input and returns a new
 string with the first letter capitalized. It does this by using the `charAt` method to get the first
 character of the input string, then using the `toUpperCase` method to convert it to uppercase. The

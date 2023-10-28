@@ -5,16 +5,14 @@ import TurkeyMap from "turkey-map-react";
 const Map = () => {
   const router = useRouter();
   const redirectCity = (name: string) => {
-    const cityName = name.toLowerCase();
-    router.push("?city=" + cityName);
+    router.push("?city=" + name);
   };
-
-
 
   return (
     <TurkeyMap
+      showTooltip={true}
       onClick={({ name }) => redirectCity(name)}
-      customStyle={{ idleColor: "#fff", hoverColor: "#282b66" }}
+      customStyle={{ idleColor: "#fff", hoverColor: "#3b82f6" }}
     />
   );
 };
