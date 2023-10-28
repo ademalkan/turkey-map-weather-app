@@ -9,44 +9,51 @@ const WeatherStatus = ({ city }: { city: CityFetch }) => {
   const helper = new Helper();
   const iconClasses = helper.iconClasses;
 
+  const weatherItems = [
+    {
+      key: "thermomoter",
+      description: "Sıcaklık (°C)",
+      startContent: <GiThermometerHot className={iconClasses} />,
+      value: helper.toCelsius(city.main?.temp),
+    },
+    {
+      key: "wind",
+      description: "Hissedilen Hava Sıcaklığı (°C)",
+      startContent: <FaWind className={iconClasses} />,
+      value: helper.toCelsius(city.main?.feels_like),
+    },
+    {
+      key: "windsock",
+      description: "Rüzgar Hızı (m/s)",
+      startContent: <GiWindsock className={iconClasses} />,
+      value: helper.windSpeedToMs(city.wind?.speed),
+    },
+    {
+      key: "sunrise",
+      description: "Güneşin Doğuş Zamanı (HH:mm)",
+      startContent: <BsFillSunriseFill className={iconClasses} />,
+      value: helper.calculateHourAndMinute(city.sys?.sunrise),
+    },
+    {
+      key: "moon",
+      description: "Ayın Doğuş Zamanı (HH:mm)",
+      startContent: <FaMoon className={iconClasses} />,
+      value: helper.calculateHourAndMinute(city.sys?.sunset),
+    },
+  ];
+
   return (
     <Listbox variant="flat" aria-label="Weather Status List">
       <ListboxSection showDivider>
-        <ListboxItem
-          key="thermomoter"
-          description="Sıcaklık (°C)"
-          startContent={<GiThermometerHot className={iconClasses} />}
-        >
-          {helper.toCelsius(city.main?.temp)}
-        </ListboxItem>
-        <ListboxItem
-          key="wind"
-          description="Hissedilen Hava Sıcaklığı (°C)"
-          startContent={<FaWind className={iconClasses} />}
-        >
-          {helper.toCelsius(city.main?.feels_like)}
-        </ListboxItem>
-        <ListboxItem
-          key="windsock"
-          description="Rüzgar Hızı (m/s)"
-          startContent={<GiWindsock className={iconClasses} />}
-        >
-          {helper.windSpeedToMs(city.wind?.speed)}
-        </ListboxItem>
-        <ListboxItem
-          key="sunrise"
-          description="Güneşin Doğuş Zamanı (HH:mm)"
-          startContent={<BsFillSunriseFill className={iconClasses} />}
-        >
-          {helper.calculateHourAndMinute(city.sys?.sunrise)}
-        </ListboxItem>
-        <ListboxItem
-          key="moon"
-          description="Ayın Doğuş Zamanı (HH:mm)"
-          startContent={<FaMoon className={iconClasses} />}
-        >
-          {helper.calculateHourAndMinute(city.sys?.sunset)}
-        </ListboxItem>
+        {weatherItems.map((item) => (
+          <ListboxItem
+            key={item.key}
+            description={item.description}
+            startContent={item.startContent}
+          >
+            {item.value}
+          </ListboxItem>
+        ))}
       </ListboxSection>
     </Listbox>
   );
