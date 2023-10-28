@@ -1,3 +1,5 @@
+import { useRouter } from "next/router";
+
 export default class Helper {
   /* The line `public iconClasses = "text-4xl text-default-500 pointer-events-none flex-shrink-0";` is
   declaring a public property `iconClasses` in the `Helper` class. The property is assigned a string

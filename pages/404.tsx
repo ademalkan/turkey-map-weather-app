@@ -1,3 +1,4 @@
+"use client";
 import { Button, Image, Link } from "@nextui-org/react";
 
 export default function Custom404() {

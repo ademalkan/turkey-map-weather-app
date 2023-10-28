@@ -1,3 +1,4 @@
+import { Footer } from "@/components";
 import { NextUIProvider } from "@nextui-org/react";
 import { Html, Head, Main, NextScript } from "next/document";
 
@@ -9,6 +10,7 @@ export default function Document() {
         <NextUIProvider>
           <Main />
           <NextScript />
+          <Footer />
         </NextUIProvider>
       </body>
     </Html>

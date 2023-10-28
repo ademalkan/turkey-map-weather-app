@@ -1,4 +1,4 @@
-import { CityFetch, FetchError, Helper, WeatherService } from "@/lib";
+import { CityFetch, Helper, WeatherService } from "@/lib";
 import {
   Modal,
   ModalContent,
