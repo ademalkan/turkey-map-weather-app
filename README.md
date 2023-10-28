@@ -3,7 +3,7 @@
 ## If you are visited the app
 
 ```bash
-[git clone https://github.com/ademalkan/turkey-map-weather-app.git](https://main--majestic-liger-eba81a.netlify.app/)
+https://main--majestic-liger-eba81a.netlify.app/
 ```
 
 ## Project Installion Steps
