@@ -10,7 +10,7 @@ const CityList = () => {
 
   const cityList = () =>
     cities.map((city) => (
-      <div className="flex items-center gap-1">
+      <div key={city.name} className="flex items-center gap-1">
         <Link
           href={`?city=${city.name}`}
           className="hover:bg-slate-100 p-1 w-full rounded-md"
